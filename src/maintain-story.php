@@ -92,13 +92,13 @@
                 if (isset($_POST['submit']) && $con) {
             	    $name = $_POST['name'];
             	    
-            	    # TODO: get project id
-            	    $project_id = 1;
+            	    # TODO: get sprint id
+            	    $sprint_id = 1;
             	    
-            	    $sql = "INSERT INTO sprint(nome, idprojeto) values ('$name', '$project_id');";
+            	    $sql = "INSERT INTO story(nome, idsprint) values ('$name', '$sprint_id');";
             	    $rs = mysqli_query($con, $sql);
             		if ($rs) {
-            			echo "<center><h3>Sprint cadastrada com sucesso!</h3></center>";
+            			echo "<center><h3>Estória cadastrada com sucesso!</h3></center>";
             		}
             		else {
             			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
@@ -113,12 +113,12 @@
                 <!-- Heading -->
                 <div class="wow fadeIn">
                     <!--Section heading-->
-                    <h2 class="h1 text-center mb-5">Sprint</h2>
+                    <h2 class="h1 text-center mb-5">Estória</h2>
                 </div>
                 
                 <!--Form-->
                 <div class="bd-example">
-                    <form action="maintain-sprint.php" method="post">
+                    <form action="maintain-story.php" method="post">
                       <!--Name-->
                       <div class="form-group">
                         <label>Nome</label>

@@ -40,7 +40,7 @@
         
               <!-- Password -->
               <div class="md-form">
-                <input type="password" id="materialLoginFormPassword" class="form-control">
+                <input type="password" id="password" name="password" class="form-control">
                 <label for="materialLoginFormPassword">Senha</label>
               </div>
         

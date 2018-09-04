@@ -136,7 +136,7 @@ DROP TABLE IF EXISTS `teste`;
 CREATE TABLE `teste` (
   `idteste` int(11) NOT NULL AUTO_INCREMENT,
   `idstory` int(11) NOT NULL,
-  `nome` longtext,
+  `dscricao` longtext,
   PRIMARY KEY (`idteste`),
   KEY `idstory_idx` (`idstory`),
   CONSTRAINT `idstory` FOREIGN KEY (`idstory`) REFERENCES `story` (`idstory`) ON DELETE CASCADE ON UPDATE CASCADE
