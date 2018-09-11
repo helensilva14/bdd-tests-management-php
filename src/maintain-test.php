@@ -16,6 +16,12 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
+    
+    <style type="text/css">
+        .btn-plus {
+            /*margin-top: -5px;*/
+        }
+    </style>
 </head>
 
 <body>
@@ -125,26 +131,44 @@
                           <div class="col-md-2 mb-6">
                               <h2>Dado</h2>
                           </div>
-                          <div class="col-md-10 mb-6">
+                          <div class="col-md-9 mb-6">
                               <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                          <!--Add Button-->
+                          <div class="col-md-1 mb-6">
+                              <button type="button" id="addAfterGiven" class="btn-plus btn btn-success">
+                                  <i class="fa fa-plus"></i>
+                              </button>                              
                           </div>
                       </div>
 
                       <div class="form-group row">
                           <div class="col-md-2 mb-6">
-                              <h2>quando</h2>
+                              <h2>Quando</h2>
                           </div>
-                          <div class="col-md-10 mb-6">
+                          <div class="col-md-9 mb-6">
                               <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                          <!--Add Button-->
+                          <div class="col-md-1 mb-6">
+                              <button type="button" id="addAfterWhen" class="btn-plus btn btn-success">
+                                  <i class="fa fa-plus"></i>
+                              </button>                              
                           </div>
                       </div>
                       
                       <div class="form-group row">
                           <div class="col-md-2 mb-6">
-                              <h2>então</h2>
+                              <h2>Então</h2>
                           </div>
-                          <div class="col-md-10 mb-6">
+                          <div class="col-md-9 mb-6">
                               <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                          <!--Add Button-->
+                          <div class="col-md-1 mb-6">
+                              <button type="button" id="addAfterThen" class="btn-plus btn btn-success">
+                                  <i class="fa fa-plus"></i>
+                              </button>                              
                           </div>
                       </div>
                         
@@ -186,6 +210,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom logic -->
+    <script type="text/javascript" src="js/script.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization
