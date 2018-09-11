@@ -18,30 +18,6 @@ USE `bdd_tm`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `iduser` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(60) NOT NULL,
-  `lastname` varchar(60) NOT NULL,
-  `email` varchar(120) NOT NULL,
-  `password` varchar(120) NOT NULL,
-  PRIMARY KEY (`iduser`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` VALUES (1,'Henrique','Grasso','henrique@gmail.com','1234'),(2,'Helen','Silva','helen@gmail.com','1234');
-
---
 -- Table structure for table `project`
 --
 
@@ -54,6 +30,7 @@ CREATE TABLE `project` (
   `description` longtext,
   `iduser` int(11) NOT NULL,
   PRIMARY KEY (`idproject`),
+  KEY `iduser` (`iduser`),
   CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -61,6 +38,7 @@ CREATE TABLE `project` (
 --
 -- Dumping data for table `project`
 --
+
 
 INSERT INTO `project` VALUES (1,'CI&T','projects do Henrique',1),(2,'Eldorado','projects da Helen',2);
 
@@ -86,7 +64,6 @@ CREATE TABLE `sprint` (
 --
 
 INSERT INTO `sprint` VALUES (1,1,'Sprint 1'),(2,1,'Sprint 2'),(3,1,'Sprint 3'),(4,2,'Sprint 1'),(5,2,'Sprint 2'),(6,2,'Sprint 3');
-
 --
 -- Table structure for table `story`
 --
@@ -109,6 +86,7 @@ CREATE TABLE `story` (
 --
 
 INSERT INTO `story` VALUES (1,1,'Como um usuário, eu gostaria de adicionar um produto na página de usuário'),(2,1,'Como um usuário administrador, eu gostaria de traduzir páginas de conteúdo'),(3,2,'Como um usuário vendedor, eu gostaria de pesquisar produtos'),(4,4,'Como usuário fornecedor, eu gostaria de visualizar os meus débitos');
+
 
 --
 -- Table structure for table `test`
@@ -133,6 +111,29 @@ CREATE TABLE `test` (
 
 INSERT INTO `test` VALUES (1,1,'Entra na página. Selecione o tipo de usuário.');
 
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL,
+  `lastname` varchar(60) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `password` varchar(120) NOT NULL,
+  PRIMARY KEY (`iduser`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` VALUES (1,'Henrique','Grasso','henrique@gmail.com','1234'),(2,'Helen','Silva','helen@gmail.com','1234');
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -144,4 +145,4 @@ INSERT INTO `test` VALUES (1,1,'Entra na página. Selecione o tipo de usuário.'
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-13 20:24:01
+-- Dump completed on 2018-09-10 20:47:10
