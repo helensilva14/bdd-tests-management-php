@@ -49,19 +49,19 @@ function DeleteUser(id) {
 function GetUserDetails(id) {
     // Add User ID to the hidden field for furture usage
     $("#hidden_user_id").val(id);
-    $.post("ajax/read-user-details.php", {
+    $.get("ajax/read-user-details.php", {
             id: id
         },
         function (data, status) {
             // PARSE json data
-            //var user = JSON.parse(data);
+            var user = JSON.parse(data);
             // Assing existing values to the modal popup fields
             
             console.log(data);
             
-            // $("#update_first_name").val(user.nome);
-            // $("#update_last_name").val(user.sobrenome);
-            // $("#update_email").val(user.email);
+            $("#update_first_name").val(user.nome);
+            $("#update_last_name").val(user.sobrenome);
+            $("#update_email").val(user.email);
         }
     );
     // Open modal popup

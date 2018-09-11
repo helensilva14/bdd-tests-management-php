@@ -31,10 +31,10 @@
                 <td>'.$row['sobrenome'].'</td>
                 <td>'.$row['email'].'</td>
                 <td>
-                    <button onclick="GetUserDetails('.$row['id'].')" class="btn btn-warning">Update</button>
+                    <button onclick="GetUserDetails('.$row['idusuario'].')" class="btn btn-warning">Update</button>
                 </td>
                 <td>
-                    <button onclick="DeleteUser('.$row['id'].')" class="btn btn-danger">Delete</button>
+                    <button onclick="DeleteUser('.$row['idusuario'].')" class="btn btn-danger">Delete</button>
                 </td>
             </tr>';
             $number++;

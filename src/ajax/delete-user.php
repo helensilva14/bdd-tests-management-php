@@ -9,7 +9,7 @@ if(isset($_POST['id']) && isset($_POST['id']) != "")
     $user_id = $_POST['id'];
  
     // delete User
-    $query = "DELETE FROM usuario WHERE id = '$user_id'";
+    $query = "DELETE FROM usuario WHERE idusuario = '$user_id'";
     if (!$result = mysqli_query($con, $query)) {
         exit(mysqli_error($con));
     }

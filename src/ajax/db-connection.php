@@ -2,7 +2,7 @@
  
     // Connection variables 
     $host = "localhost"; // MySQL host name eg. localhost
-    $user = "helensilva"; // MySQL user. eg. root ( if your on localserver)
+    $user = "admin"; // MySQL user. eg. root ( if your on localserver)
     $password = ""; // MySQL user password  (if password is not set for your root user then keep it empty )
     $database = "bddtm"; // MySQL Database name
      

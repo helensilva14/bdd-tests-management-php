@@ -12,7 +12,7 @@ if(isset($_POST))
     $email = $_POST['email'];
  
     // Updaste User details
-    $query = "UPDATE usuario SET nome = '$first_name', sobrenome = '$last_name', email = '$email' WHERE id = '$id'";
+    $query = "UPDATE usuario SET nome = '$first_name', sobrenome = '$last_name', email = '$email' WHERE idusuario = '$id'";
     if (!$result = mysqli_query($con, $query)) {
         exit(mysqli_error($con));
     }
