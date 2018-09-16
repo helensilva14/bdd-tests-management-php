@@ -28,7 +28,7 @@
             <div class="container">
 
                 <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="home.php" target="_blank">
+                <a class="navbar-brand waves-effect" href="home.php">
                     <img src="img/logo.png" width="77" height="59"></img>
                 </a>
 
@@ -60,8 +60,7 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="#" class="nav-link border border-light rounded waves-effect"
-                                target="_blank">
+                            <a href="#" class="nav-link border border-light rounded waves-effect">
                                 <i class="fa fa-sign-out"></i>Sair
                             </a>
                         </li>

@@ -8,7 +8,6 @@
         $id = $_POST['project'];
      
         $query = "DELETE FROM projeto WHERE idprojeto = '$id'";
-        
         $rs = mysqli_query($con, $query);
         
 		if ($rs) {

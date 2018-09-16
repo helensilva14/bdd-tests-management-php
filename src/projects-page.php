@@ -28,7 +28,7 @@
             <div class="container">
 
                 <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="home.php" target="_blank">
+                <a class="navbar-brand waves-effect" href="home.php">
                     <img src="img/logo.png" width="77" height="59"></img>
                 </a>
 
@@ -60,8 +60,7 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="#" class="nav-link border border-light rounded waves-effect"
-                                target="_blank">
+                            <a href="#" class="nav-link border border-light rounded waves-effect">
                                 <i class="fa fa-sign-out"></i>Sair
                             </a>
                         </li>
@@ -92,6 +91,8 @@
                     </div>
                 </div>
                 <!-- Heading & Description -->
+                
+                <hr class="mb-3">
 
                 <!--Grid row-->
                 <div class="row wow fadeIn">
@@ -115,7 +116,7 @@
                             $number = 1;
                             while($row = mysqli_fetch_assoc($result))
                             {
-                                echo '<hr class="mb-5">';
+                                echo '<hr class="mb-2">';
                                 echo '<div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">';
                                 echo '<h3 class="mb-3 font-weight-bold dark-grey-text">';
                                 echo '<strong>'.$row['nome'].'</strong>';
@@ -177,7 +178,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <input type="text" id="description" name="description" class="form-control"/>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -206,7 +207,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <input type="text" id="edit_description" name="edit_description" class="form-control"/>
+                        <textarea class="form-control" id="edit_description" name="edit_description" rows="3"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
