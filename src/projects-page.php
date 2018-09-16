@@ -104,7 +104,7 @@
                         # TODO: get logged user id
 	                    $user_id = 1;
                         
-                        $query = "SELECT * FROM projeto WHERE idusuario = $user_id";
+                        $query = "SELECT * FROM project WHERE iduser = $user_id";
  
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));
@@ -113,18 +113,17 @@
                         // if query results contains rows then featch those rows 
                         if(mysqli_num_rows($result) > 0)
                         {
-                            $number = 1;
                             while($row = mysqli_fetch_assoc($result))
                             {
                                 echo '<hr class="mb-2">';
                                 echo '<div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">';
                                 echo '<h3 class="mb-3 font-weight-bold dark-grey-text">';
-                                echo '<strong>'.$row['nome'].'</strong>';
+                                echo '<strong>'.$row['name'].'</strong>';
                                 echo '</h3>';
-                                echo '<p>'.$row['descricao'].'</p>';
-                                echo '<a href="maintain-sprint.php?projeto='.$row['idprojeto'].'" class="btn btn-primary btn-md">VER ESTÓRIAS<i class="fa fa-play ml-2"></i></a>';
-                                echo '<button onclick="GetProject('.$row['idprojeto'].')" class="btn btn-warning btn-md">EDITAR</button>';
-                                echo '<button onclick="DeleteProject('.$row['idprojeto'].')" class="btn btn-danger btn-md">APAGAR</button>';
+                                echo '<p>'.$row['description'].'</p>';
+                                echo '<a href="maintain-sprint.php?projeto='.$row['idproject'].'" class="btn btn-primary btn-md">VER ESTÓRIAS<i class="fa fa-play ml-2"></i></a>';
+                                echo '<button onclick="GetProject('.$row['idproject'].')" class="btn btn-warning btn-md">EDITAR</button>';
+                                echo '<button onclick="DeleteProject('.$row['idproject'].')" class="btn btn-danger btn-md">APAGAR</button>';
                                 echo '</div>';
                             }
                         }

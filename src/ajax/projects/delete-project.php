@@ -7,7 +7,7 @@
     {
         $id = $_POST['project'];
      
-        $query = "DELETE FROM projeto WHERE idprojeto = '$id'";
+        $query = "DELETE FROM project WHERE idproject = '$id'";
         $rs = mysqli_query($con, $query);
         
 		if ($rs) {

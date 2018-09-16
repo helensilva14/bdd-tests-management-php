@@ -9,9 +9,9 @@ function GetProject(id) {
         },
         function (data, status) {
             var project = JSON.parse(data);
-            $("#id").val(project.idprojeto);
-            $("#edit_name").val(project.nome);
-            $("#edit_description").val(project.descricao);
+            $("#id").val(project.idproject);
+            $("#edit_name").val(project.name);
+            $("#edit_description").val(project.description);
         }
     );
     

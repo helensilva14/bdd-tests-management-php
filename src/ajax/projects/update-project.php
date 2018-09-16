@@ -10,7 +10,7 @@
         $name = $_POST['edit_name'];
         $description = $_POST['edit_description'];
      
-        $query = "UPDATE projeto SET nome = '$name', descricao = '$description' WHERE idprojeto = '$id'";
+        $query = "UPDATE project SET name = '$name', description = '$description' WHERE idproject = '$id'";
         
         $rs = mysqli_query($con, $query);
         
