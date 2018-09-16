@@ -3,7 +3,8 @@
     include("db-connection.php");
  
     // Design initial table header 
-    $data = '<table class="table table-bordered table-striped">
+    $data = '<table id="tbUsuarios" class="table table-striped table-bordered">
+                 </thead>
                         <tr>
                             <th>No.</th>
                             <th>First Name</th>
@@ -11,7 +12,9 @@
                             <th>Email Address</th>
                             <th>Update</th>
                             <th>Delete</th>
-                        </tr>';
+                        </tr>
+                </thead>
+                <tbody>';
  
     $query = "SELECT * FROM usuario";
  
@@ -46,7 +49,8 @@
         $data .= '<tr><td colspan="6">Records not found!</td></tr>';
     }
  
-    $data .= '</table>';
+    $data .= '          </tbody>
+            </table>';
  
     echo $data;
 ?>

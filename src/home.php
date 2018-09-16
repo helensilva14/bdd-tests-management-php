@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Home</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -28,7 +28,7 @@
             <div class="container">
 
                 <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
+                <a class="navbar-brand waves-effect" href="home.php" target="_blank">
                     <img src="img/logo.png" width="77" height="59"></img>
                 </a>
 
@@ -44,21 +44,16 @@
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
+                            <a class="nav-link waves-effect" href="home.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Projetos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Sprints</a>
+                            <a class="nav-link waves-effect" href="projects-page.php">Projetos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect" href="#">Estórias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Casos de Teste</a>
+                            <a class="nav-link waves-effect" href="tests-page.php">Casos de Teste</a>
                         </li>
                     </ul>
 
@@ -149,7 +144,13 @@
                             <div class="card-body">
                                 
                                 <div class="row">
-                                    <p class="text-center"></p>
+                                    <p class="text-center">
+                                        Cras eu velit et ante pharetra aliquam at sit amet nisl. Phasellus ut nunc urna. Suspendisse ut rutrum ligula. 
+                                        Quisque orci mauris, gravida non tincidunt vel, tincidunt vitae tortor. Donec mattis imperdiet rhoncus. 
+                                        Maecenas lacus nisl, sollicitudin eu commodo nec, condimentum ac dui. Vestibulum mi urna, euismod vitae vestibulum eget, convallis eu nisi. 
+                                        Vestibulum non suscipit sem. Integer gravida vel neque tristique pretium. 
+                                        Nunc luctus mi ut tincidunt mollis. Phasellus vitae felis iaculis, placerat odio eu, porttitor urna.
+                                    </p>
                                 </div>
     
                                 <!-- Row-->
@@ -207,7 +208,7 @@
     <!--Main layout-->
 
     <!--Footer-->
-    <footer class="page-footer orange mt-4">
+    <footer class="page-footer font-small orange pt-4">
     
         <!--Copyright-->
         <div class="footer-copyright text-center py-3">

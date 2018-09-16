@@ -46,6 +46,21 @@ function DeleteUser(id) {
     }
 }
 
+function DeleteUser() {
+    var id = $("#hidden_user_id").val();
+    var conf = confirm("Are you sure, do you really want to delete User?");
+    if (conf == true) {
+        $.post("ajax/delete-user.php", {
+                id: id
+            },
+            function (data, status) {
+                // reload Users by using readRecords();
+                readRecords();
+            }
+        );
+    }
+}
+
 function GetUserDetails(id) {
     // Add User ID to the hidden field for furture usage
     $("#hidden_user_id").val(id);
@@ -88,12 +103,41 @@ function UpdateUserDetails() {
             // hide modal popup
             $("#update_user_modal").modal("hide");
             // reload Users by using readRecords();
-            readRecords();
+            //readRecords();
+            
+            var table = $('#tbUsuarios').DataTable();
+            table.ajax.reload();
         }
     );
 }
 
+$.extend( $.fn.dataTable.defaults, {
+    responsive: true
+} );
+
 $(document).ready(function () {
+    // var table = $('#tbUsuarios').DataTable( {
+    //     "processing": true,
+    //     "serverSide": true,
+    //     "ajax": "ajax/load-users-datatable.php",
+    //     "columns": [
+    //         { data: 0 },
+    //         { data: 1 },
+    //         { data: 2 },
+    //         {
+    //             data: null,
+    //             className: "center",
+    //             defaultContent: '<button id="edit" class="btn btn-warning">Update</button>'
+    //         },
+    //     ]
+    // } );
+    
+    // $('#tbUsuarios').on( 'click', 'button', function () {
+    //     var data = table.row( $(this).parents('tr') ).data();
+    //     GetUserDetails(data[3]);
+    // } );
+    
     // READ recods on page load
     readRecords(); // calling function
+
 });

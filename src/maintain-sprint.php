@@ -87,6 +87,9 @@
             
             <?php
             
+                $id = $_GET['projeto'];
+                echo $id;
+            
                 $con = mysqli_connect("localhost", "helensilva", "", "bddtm") or die("A conexão com o servidor não foi estabelecida.");
             
                 if (isset($_POST['submit']) && $con) {
