@@ -18,7 +18,6 @@
     </head>
 
     <body class="text-center">
-      <form class="form-signin">
         <!-- Material form login -->
         <div class="card">
         
@@ -28,38 +27,30 @@
         
           <!--Card content-->
           <div class="card-body px-lg-5 pt-0">
-        
+          <?php
+            if(isset($_GET['msg'])){ 
+              echo '
+              <div class="alert alert-danger">
+                <center><strong>Usuário e/ou senha inválidos</strong></center>
+              </div>';
+            }
+          ?>
             <!-- Form -->
-            <form class="text-center" style="color: #757575;">
-        
+            <form class="text-left" style="color: #757575;" method="post" action="ajax/users/login.php">
+            <br>
               <!-- Email -->
-              <div class="md-form">
-                <input type="email" id="materialLoginFormEmail" class="form-control">
-                <label for="materialLoginFormEmail">E-mail</label>
+              <div class="form-group">
+                <label for="email" ><strong>E-mail</strong></label>
+                <input type="email" class="form-control" name="email">     
               </div>
         
               <!-- Password -->
-              <div class="md-form">
-                <input type="password" id="password" name="password" class="form-control">
-                <label for="materialLoginFormPassword">Senha</label>
+              <div class="form-group">
+                <label for="password"><strong>Senha</strong></label>
+                <input type="password" class="form-control" name="password">
               </div>
-        
-              <!--<div class="d-flex justify-content-around">-->
-              <!--  <div>-->
-                  <!-- Remember me -->
-              <!--    <div class="form-check">-->
-              <!--      <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">-->
-              <!--      <label class="form-check-label" for="materialLoginFormRemember">Lembrar-me</label>-->
-              <!--    </div>-->
-              <!--  </div>-->
-              <!--  <div>-->
-                  <!-- Forgot password -->
-              <!--    <a href="">Esqueceu sua senha?</a>-->
-              <!--  </div>-->
-              <!--</div>-->
-        
-              <!-- Sign in button -->
-              <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" id="" type="button">Entrar</button>
+
+              <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" id="" type="submit" name="entrar">Entrar</button>
         
               <!-- Register -->
               <p>Não tem uma conta? <a href="">Cadastre-se</a> </p>
@@ -70,9 +61,5 @@
           </div>
         
         </div>
-      </form>
-      <script type="text/javascript">
-        
-      </script>
     </body>
 </html>
