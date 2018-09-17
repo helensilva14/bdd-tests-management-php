@@ -7,7 +7,7 @@
     {
         $id = $_GET['project'];
      
-        $query = "SELECT * FROM projeto WHERE idprojeto = '$id'";
+        $query = "SELECT * FROM project WHERE idproject = '$id'";
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));

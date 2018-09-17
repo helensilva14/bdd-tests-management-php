@@ -10,7 +10,7 @@
 	    # TODO: get logged user id
 	    $user_id = 1;
 	    
-	    $sql = "INSERT INTO projeto(nome, descricao, idusuario) values ('$name', '$description', '$user_id');";
+	    $sql = "INSERT INTO project(name, description, iduser) values ('$name', '$description', '$user_id');";
 	    $rs = mysqli_query($con, $sql);
 		if ($rs) {
 			echo "<center><h3>Projeto cadastrado com sucesso!</h3></center>";

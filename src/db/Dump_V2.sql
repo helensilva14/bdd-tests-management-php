@@ -42,28 +42,7 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` VALUES (1,'CI&T','projects do Henrique',1),(2,'Eldorado','projects da Helen',2);
 
---
--- Table structure for table `sprint`
---
 
-DROP TABLE IF EXISTS `sprint`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sprint` (
-  `idsprint` int(11) NOT NULL AUTO_INCREMENT,
-  `idproject` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idsprint`),
-  KEY `idproject_idx` (`idproject`),
-  CONSTRAINT `idproject` FOREIGN KEY (`idproject`) REFERENCES `project` (`idproject`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sprint`
---
-
-INSERT INTO `sprint` VALUES (1,1,'Sprint 1'),(2,1,'Sprint 2'),(3,1,'Sprint 3'),(4,2,'Sprint 1'),(5,2,'Sprint 2'),(6,2,'Sprint 3');
 --
 -- Table structure for table `story`
 --
@@ -73,11 +52,11 @@ DROP TABLE IF EXISTS `story`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `story` (
   `idstory` int(11) NOT NULL AUTO_INCREMENT,
-  `idsprint` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `idproject` int(11) NOT NULL,
+  `description` varchar(200) NOT NULL,
   PRIMARY KEY (`idstory`),
-  KEY `idsprint_idx` (`idsprint`),
-  CONSTRAINT `idsprint` FOREIGN KEY (`idsprint`) REFERENCES `sprint` (`idsprint`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `idstory_idx` (`idstory`),
+  CONSTRAINT `idproject` FOREIGN KEY (`idproject`) REFERENCES `project` (`idproject`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
