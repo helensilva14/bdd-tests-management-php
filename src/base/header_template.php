@@ -13,13 +13,13 @@
 
 <body>
 
-    <!--Main Navigation-->
+  <!--Main Navigation-->
 
   <?php 
-  session_start();
-  if((!isset($_SESSION['iduser'])) && (!isset($_SESSION['name']))){ 
-        header('Location: login-page.php'); 
-    }
+      session_start();
+      if((!isset($_SESSION['iduser'])) && (!isset($_SESSION['name']))) { 
+            header('Location: login-page.php'); 
+      }
    ?>
  
     <header>
@@ -51,7 +51,7 @@
                             <a class="nav-link waves-effect" href="projects-page.php">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Estórias</a>
+                            <a class="nav-link waves-effect" href="stories-page.php">Estórias</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect" href="tests-page.php">Casos de Teste</a>

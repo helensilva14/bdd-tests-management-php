@@ -1,15 +1,13 @@
 <?php
     // include database connection file
     include("../db-connection.php");
-
+     
     // check request
-    if(isset($_GET['story']))
+    if(isset($_GET['test']) && $con)
     {
-        $id = $_GET['story'];
-
-        $query = "SELECT * FROM story WHERE idstory = '$id'";
-        
-        echo $query;
+        $id = $_GET['test'];
+     
+        $query = "SELECT * FROM test WHERE idtest = '$id'";
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));
@@ -26,8 +24,6 @@
         {
             $response['status'] = 200;
             $response['message'] = "Nenhum dado foi encontrado";
-            
-            echo 'erro';
         }
         
         // display JSON data

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home</title>
+    <title>Casos de Teste</title>
 
 <?php
     include("base/header_template.php");
