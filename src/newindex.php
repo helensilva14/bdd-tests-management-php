@@ -1,75 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>PHP and MySQL CRUD Operations Demo</title>
+    <title>Home</title>
 
-    <!-- Bootstrap CSS File  -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mdb.min.css" />
-</head>
-<body>
-    
-    <!--Main Navigation-->
-    <header>
-
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
-
-                <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
-                    <img src="img/logo.png" width="77" height="59"></img>
-                </a>
-
-                <!-- Collapse -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Links -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Left -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="#">Projetos
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Sprints</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Estórias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Casos de Teste</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right -->
-                    <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link border border-light rounded waves-effect"
-                                target="_blank">
-                                <i class="fa fa-sign-out"></i>Sair
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div>
-        </nav>
-        <!-- Navbar -->
-
-    </header>
-    <!--Main Navigation-->
+<?php
+    include("base/header_template.php");
+?>
     
     <!--Main layout-->
     <main class="mt-5 pt-5">

@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+
 <?php
     include("base/header_template.php");
 ?>
