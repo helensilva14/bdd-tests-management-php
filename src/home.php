@@ -1,4 +1,8 @@
+<?php 
 
+    session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +25,11 @@
 <body>
 
     <!--Main Navigation-->
+    
+    <?php 
+        echo "NAME: ".$_SESSION['name'];
+        echo "ID USER: ".$_SESSION['iduser'];
+    ?>
     <header>
 
         <!-- Navbar -->
@@ -85,7 +94,7 @@
                 <!-- Heading & Description -->
                 <div class="wow fadeIn">
                     <!--Section heading-->
-                    <h2 class="h1 text-center mb-5">Olá, {NOME_USUARIO}</h2>
+                    <?php echo "<h2 class='h1 text-center mb-5'>Olá, ".$_SESSION['name']."</h2>";  ?>
                 </div>
                 <!-- Heading & Description -->
 
