@@ -1,13 +1,15 @@
 <?php
     // include database connection file
     include("../db-connection.php");
-     
+
     // check request
-    if(isset($_GET['project']))
+    if(isset($_GET['story']))
     {
-        $id = $_GET['project'];
-     
-        $query = "SELECT * FROM projeto WHERE idprojeto = '$id'";
+        $id = $_GET['story'];
+
+        $query = "select * from story where idstory = $id;";
+        
+        echo $query;
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));

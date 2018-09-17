@@ -4,10 +4,10 @@
 
     if (isset($_POST['submit']) && $con) {
         
-	    $name = $_POST['name'];
+	    $description = $_POST['description'];
 	    $project_id = $_POST['project'];
 	  
-	    $sql = "INSERT INTO story(nome, idsprint) values ('$name', '$project_id');";
+	    $sql = "INSERT INTO story(description, idproject) values ('$description', '$project_id');";
 	    $rs = mysqli_query($con, $sql);
 		if ($rs) {
 			echo "<center><h3>Estória cadastrada com sucesso!</h3></center>";
