@@ -20,7 +20,7 @@ if ($con){
 		}
 		else{
 			session_destroy();
-			header("Location: ../../login-page.php?msg=1");
+			header("Location: ../../login-page.php?msg=error");
 		}
 
 	}

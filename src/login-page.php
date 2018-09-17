@@ -20,21 +20,24 @@
     <body class="text-center">
         <!-- Material form login -->
         <div class="card">
-        
           <h5 class="card-header info-color white-text text-center py-4">
             <strong>Entrar</strong>
           </h5>
-        
+          <?php
+              if((isset($_GET['msg'])) && ($_GET['msg']=='error')){ 
+                echo '
+                <div class="alert alert-danger">
+                  <center><strong>Usuário e/ou senha inválidos</strong></center>
+                </div>';
+              } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='success')) {
+                echo '
+                <div class="alert alert-success">
+                  <center><strong>Cadastro efetuado com sucesso!</strong></center>
+                </div>';
+              }
+          ?>  
           <!--Card content-->
           <div class="card-body px-lg-5 pt-0">
-          <?php
-            if(isset($_GET['msg'])){ 
-              echo '
-              <div class="alert alert-danger">
-                <center><strong>Usuário e/ou senha inválidos</strong></center>
-              </div>';
-            }
-          ?>
             <!-- Form -->
             <form class="text-left" style="color: #757575;" method="post" action="ajax/users/login.php">
             <br>
@@ -53,7 +56,7 @@
               <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" id="" type="submit" name="entrar">Entrar</button>
         
               <!-- Register -->
-              <p>Não tem uma conta? <a href="">Cadastre-se</a> </p>
+              <p>Não tem uma conta? <a href="register-user.php">Cadastre-se</a> </p>
         
             </form>
             <!-- Form -->
