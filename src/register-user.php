@@ -25,69 +25,67 @@
             <strong>Nova conta</strong>
         </h5>
         <!--Card content-->
+        <?php 
+          if((isset($_GET['msg'])) && ($_GET['msg'] == 'error')){
+            echo '
+            <div class="alert alert-danger">
+              <center><strong>As senhas não conferem!</strong></center>
+            </div>';
+          }
+         ?>
+
         <div class="card-body px-lg-5 pt-0">
           <!-- Form -->
-          <form class="text-center" style="color: #757575;" action="register-user.php" method="post">
+          <form class="text-left" style="color: #757575;" action="ajax/users/add-user.php" method="post">
   
             <div class="form-row">
               <div class="col">
                 <!-- First name -->
-                <div class="md-form">
-                  <input type="text" id="name" name="name" class="form-control">
-                  <label>Nome</label>
+                <br>
+                <div class="form-group">
+                  <label><strong>Nome</strong></label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+                  
                 </div>
               </div>
               <div class="col">
                 <!-- Last name -->
-                <div class="md-form">
-                  <input type="text" id="last_name" name="last_name" class="form-control">
-                  <label>Sobrenome</label>
+                <br>
+                <div class="form-group">
+                  <label><strong>Sobrenome</strong></label>
+                  <input type="text" id="last_name" name="last_name" class="form-control" required>
                 </div>
               </div>
             </div>
             
             <!-- E-mail -->
-            <div class="md-form mt-0">
-              <input type="email" id="email" name="email" class="form-control">
-              <label>E-mail</label>
+            <div class="form-group mt-0">
+              <label><strong>E-mail</strong></label>
+              <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
             <!-- Password -->
-            <div class="md-form">
-              <input type="password" id="password" name="password" class="form-control">
-              <label>Senha</label>
+            <div class="form-group">
+              <label><strong>Senha</strong></label>
+              <input type="password" id="password" name="password" class="form-control" required minlength="8">
               <small class="form-text text-muted mb-4">Digite pelo menos 8 caracteres</small>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label><strong>Confirmar Senha</strong></label>
+              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required minlength="8">
             </div>
 
             <!-- Sign up button -->
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="submit">Cadastrar</button>
-            
+          
+          <!-- Register -->
+              <center><p>Já possui uma conta? <a href="login-page.php">Entrar</a></p></center>
+        
+
           </form>
           <!-- Form -->
-          
-         <?php
-        
-            $con = mysqli_connect("localhost", "helensilva", "", "bddtm") or die("A conexão com o servidor não foi estabelecida.");
-        
-            if (isset($_POST['submit']) && $con) {
-        	    $name = $_POST['name'];
-        	    $last_name = $_POST['last_name'];
-        	    $email = $_POST['email'];
-        	    $password = $_POST['password'];
-        	    
-        	    $sql = "INSERT INTO usuario(nome, sobrenome, email, senha) values ('$name', '$last_name', '$email', '$password');";
-        	    $rs = mysqli_query($con, $sql);
-        		if ($rs) {
-        			echo "<center><h3>Usuário cadastrado com sucesso!</h3></center>";
-        			
-        			header('Location: login.php');
-        		}
-        		else {
-        			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
-        		}
-        	}
-        
-        ?>
           
         </div>
       </div>
