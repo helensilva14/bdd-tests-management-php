@@ -8,7 +8,8 @@ function GetStory(id) {
             story: id
         },
         function (data, status) {
-            var story = JSON.parse(data);
+            var json = JSON.parse(decodeURIComponent(data));
+            var story = JSON.parse(json);
             $("#id").val(story.idstory);
             $("#edit_description").val(story.description);
         }

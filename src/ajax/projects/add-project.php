@@ -7,8 +7,10 @@
 	    $name = $_POST['name'];
 	    $description = $_POST['description'];
 	    
-	    # TODO: get logged user id
-	    $user_id = 1;
+	    // get logged user
+	    $user_id = $_SESSION['iduser'];
+	    
+	    $response = array();
 	    
 	    $sql = "INSERT INTO project(name, description, iduser) values ('$name', '$description', '$user_id');";
 	    $rs = mysqli_query($con, $sql);

@@ -3,7 +3,7 @@
     include("../db-connection.php");
      
     // check request
-    if(isset($_GET['test']) && $con)
+    if(isset($_GET['test']))
     {
         $id = $_GET['test'];
      

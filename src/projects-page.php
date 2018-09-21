@@ -34,8 +34,8 @@
                         // include Database connection file 
                         include("ajax/db-connection.php");
                         
-                        # TODO: get logged user id
-	                    $user_id = 1;
+                        // TODO: get logged user id
+	                    $user_id = $_SESSION['iduser'];
                         
                         $query = "SELECT * FROM project WHERE iduser = $user_id";
  
