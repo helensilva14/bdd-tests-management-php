@@ -6,9 +6,13 @@
         
 	    $story_id = $_POST['story'];
 	    $description = $_POST['description'];
+	    
+	    $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;"); 
 	  
 	    $sql = "INSERT INTO test(description, idstory) values ('$description', '$story_id');";
 	    $rs = mysqli_query($con, $sql);
+	    
 		if ($rs) {
 			echo "<center><h3>Caso de teste cadastrado com sucesso!</h3></center>";
 		}

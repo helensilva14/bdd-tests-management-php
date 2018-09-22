@@ -66,15 +66,43 @@
                 // get logged user id
                 $user_id = $_SESSION['iduser'];
      
-                $sql = "SELECT t . * , p.name AS  'project', s.description AS  'story' FROM test t 
+                $query = "SELECT t . * , p.name AS  'project', s.description AS  'story' FROM test t 
                         JOIN story s ON t.idstory = s.idstory JOIN project p ON s.idproject = p.idproject
                         WHERE p.iduser = '$user_id'";
                         
                 $con->query("SET CHARACTER SET utf8;");
-                $con->query("SET collation_connection = utf8_unicode_ci;");        
+                $con->query("SET collation_connection = utf8_unicode_ci;");
                         
-                $rs = mysqli_query($con, $sql); 
+                if (isset($_GET['story'])) {
+                    $story_id = $_GET['story'];
+                    $query .= " AND t.idstory = '$story_id'";
+                    
+                    $sql = "SELECT description FROM story WHERE idstory = '$story_id'";
+                    
+                    if (!$rs2 = mysqli_query($con, $sql)) {
+                        exit(mysqli_error($con));
+                    }
+                }
+                        
+                if (!$rs = mysqli_query($con, $query)) {
+                    exit(mysqli_error($con));
+                }
             ?>
+            
+            <?php if(mysqli_num_rows($rs) == 0): ?>
+                <div class="row ml-4 mt-2">
+                    <h4>Não há casos de teste a serem exibidos.</h4>
+                </div>
+            <?php endif; ?>
+            
+            <?php if (isset($_GET['story'])): ?>
+                <?php while($row2 = mysqli_fetch_array($rs2)): ?>
+                    <div class="row ml-4 mt-2 pt-2">
+                        <h3><strong>Estória: </strong> <?php echo $row2['description']; ?></h3>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            
             <?php while($row = mysqli_fetch_array($rs)): ?>
                 <div class="row ml-4 mt-2 pt-4">
                     <div class="col-md-12 card">
