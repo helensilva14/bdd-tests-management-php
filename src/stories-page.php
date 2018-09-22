@@ -39,7 +39,10 @@
                         //$query = "SELECT p.name AS  'project', s . * FROM story s, project p WHERE s.idproject = $user_id";
                         
                         $query = "SELECT p.name AS 'project', s. * FROM story s, project p;";
-
+                        
+                        $con->query("SET CHARACTER SET utf8;");
+                        $con->query("SET collation_connection = utf8_unicode_ci;"); 
+        
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));
                         }

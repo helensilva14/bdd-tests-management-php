@@ -2,7 +2,7 @@
     // include database connection file 
     include("../db-connection.php");
 
-    if (isset($_POST['submit']) && $con) {
+    if (isset($_POST['submit'])) {
         
 	    $story_id = $_POST['story'];
 	    $description = $_POST['description'];
