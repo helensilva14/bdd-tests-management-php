@@ -33,39 +33,32 @@
                         // include Database connection file 
                         include("ajax/db-connection.php");
                         
-                        # TODO: get logged user id
-	                    $user_id = 1;
+                        // get logged user id
+	                    $user_id = $_SESSION['iduser'];
                         
                         $query = "SELECT * FROM project WHERE iduser = $user_id";
  
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));
                         }
-                     
-                        // if query results contains rows then featch those rows 
-                        if(mysqli_num_rows($result) > 0)
-                        {
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-                                echo '<hr class="mb-2">';
-                                echo '<div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">';
-                                echo '<h3 class="mb-3 font-weight-bold dark-grey-text">';
-                                echo '<strong>'.$row['name'].'</strong>';
-                                echo '</h3>';
-                                echo '<p>'.$row['description'].'</p>';
-                                echo '<a href="maintain-sprint.php?projeto='.$row['idproject'].'" class="btn btn-primary btn-md">VER ESTÓRIAS<i class="fa fa-play ml-2"></i></a>';
-                                echo '<button onclick="GetProject('.$row['idproject'].')" class="btn btn-warning btn-md">EDITAR</button>';
-                                echo '<button onclick="DeleteProject('.$row['idproject'].')" class="btn btn-danger btn-md">APAGAR</button>';
-                                echo '</div>';
-                            }
-                        }
-                        else
-                        {
-                            // records now found 
-                            echo 'Você ainda não tem projetos cadastrados';
-                        }
-                        
                     ?>
+                    
+                    <?php if(mysqli_num_rows($result) == 0): ?>
+                        <div class="row ml-4 mt-2">
+                            <h4>Não há projetos a serem exibidos.</h4>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php while($row = mysqli_fetch_array($result)): ?>
+                        <hr class="mb-2">
+                        <div class="col-md-12 ml-xl-4 mb-4">
+                            <h3 class="mb-3 font-weight-bold dark-grey-text"><?php echo $row['name']; ?></h3>
+                            <h5><?php echo $row['description']; ?></h5>
+                            <a href="stories-page.php?project=<?php echo $row['idproject']; ?>" class="btn btn-primary btn-md">VER ESTÓRIAS<i class="fa fa-play ml-2"></i></a>
+                            <button onclick="GetProject(<?php echo $row['idproject']; ?>)" class="btn btn-warning btn-md">EDITAR</button>
+                            <button onclick="DeleteProject(<?php echo $row['idproject']; ?>)" class="btn btn-danger btn-md">APAGAR</button>
+                        </div>
+                    <?php endwhile; ?>
 
                 </div>
                 <!--Grid row-->

@@ -3,11 +3,14 @@
     include("../db-connection.php");
      
     // check request
-    if(isset($_GET['test']) && $con)
+    if(isset($_GET['test']))
     {
         $id = $_GET['test'];
      
         $query = "SELECT * FROM test WHERE idtest = '$id'";
+        
+        $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;"); 
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));

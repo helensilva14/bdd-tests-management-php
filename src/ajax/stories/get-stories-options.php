@@ -2,21 +2,21 @@
     // include database connection file
     include("../db-connection.php");    
     
-    if(isset($_POST['project']))
+    // check request
+    if(isset($_GET['project']))
     {
-        $project_id = $_POST['project'];
+        $project_id = $_GET['project'];
         
-        $query = "SELECT description FROM story where idproject = '$project_id'";
+        $query = "SELECT * FROM story WHERE idproject = '$project_id'";
         
-        echo $query;
+        $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;");
         
-        $rs = mysql_query($con, $query);
+        $rs = mysqli_query($con, $query);
         
-        while($row = mysql_fetch_array($rs))
+        while($row = mysqli_fetch_array($rs))
         {
-            echo "<option>".$row['description']."</option>";
+            echo '<option value="'. $row['idstory'] .'">'. $row['description'] .'</option>';
         }
-        
-        exit;
     }
 ?>

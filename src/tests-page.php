@@ -1,24 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Casos de Teste</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
-    
     <!-- Template styles -->
-								<style rel="stylesheet">
+	<style rel="stylesheet">
         /* TEMPLATE STYLES */
 
         main {
@@ -52,64 +38,10 @@
             color: #fff !important;
         }
     </style>
-</head>
 
-<body>
-
-    <!--Main Navigation-->
-    <header>
-
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
-
-                <!-- Brand -->
-                <a class="navbar-brand waves-effect" href="home.php">
-                    <img src="img/logo.png" width="77" height="59"></img>
-                </a>
-
-                <!-- Collapse -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Links -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Left -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="home.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="projects-page.php">Projetos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="stories-page.php">Estórias</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="tests-page.php">Casos de Teste</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right -->
-                    <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link border border-light rounded waves-effect">
-                                <i class="fa fa-sign-out"></i>Sair
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div>
-        </nav>
-        <!-- Navbar -->
-
-    </header>
-    <!--Main Navigation-->
+<?php
+    include("base/header_template.php");
+?>
 
     <!--Main layout-->
     <main class="mt-5 pt-5">
@@ -130,67 +62,68 @@
 			<?php 
 			    // include Database connection file 
                 include("ajax/db-connection.php"); 
+  
+                // get logged user id
+                $user_id = $_SESSION['iduser'];
+     
+                $query = "SELECT t . * , p.name AS  'project', s.description AS  'story' FROM test t 
+                        JOIN story s ON t.idstory = s.idstory JOIN project p ON s.idproject = p.idproject
+                        WHERE p.iduser = '$user_id'";
+                        
+                $con->query("SET CHARACTER SET utf8;");
+                $con->query("SET collation_connection = utf8_unicode_ci;");
+                        
+                if (isset($_GET['story'])) {
+                    $story_id = $_GET['story'];
+                    $query .= " AND t.idstory = '$story_id'";
+                    
+                    $sql = "SELECT description FROM story WHERE idstory = '$story_id'";
+                    
+                    if (!$rs2 = mysqli_query($con, $sql)) {
+                        exit(mysqli_error($con));
+                    }
+                }
+                        
+                if (!$rs = mysqli_query($con, $query)) {
+                    exit(mysqli_error($con));
+                }
             ?>
-			
-			<!--Second row-->
-			<div class="row mt-5 pt-4">
-				<!--First columnn-->
-				<div class="col-lg-4">
-					<!--Card-->
-					<div class="card mb-r wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
-						<!--Card content-->
-						<div class="card-body">
-							<!--Title-->
-							<h4 class="card-title">
-								<strong>This is title</strong>
-							</h4>
-							<!--Text-->
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-blue-grey btn-md waves-effect waves-light">Read more</a>
-						</div>
-					</div>
-					<!--/.Card-->
-				</div>
-				<!--First columnn-->
-				<!--Second columnn-->
-				<div class="col-lg-4">
-					<!--Card-->
-					<div class="card mb-r wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
-						<!--Card content-->
-						<div class="card-body">
-							<!--Title-->
-							<h4 class="card-title">
-								<strong>This is title</strong>
-							</h4>
-							<!--Text-->
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-blue-grey btn-md waves-effect waves-light">Read more</a>
-						</div>
-					</div>
-					<!--/.Card-->
-				</div>
-				<!--Second columnn-->
-				<!--Third columnn-->
-				<div class="col-lg-4">
-					<!--Card-->
-					<div class="card wow fadeIn" data-wow-delay="0.6s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.6s;">
-						<!--Card content-->
-						<div class="card-body">
-							<!--Title-->
-							<h4 class="card-title">
-								<strong>This is title</strong>
-							</h4>
-							<!--Text-->
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-blue-grey btn-md waves-effect waves-light">Read more</a>
-						</div>
-					</div>
-					<!--/.Card-->
-				</div>
-				<!--Third columnn-->
-			</div>
-			<!--/.Second row-->
-				
+            
+            <?php if(mysqli_num_rows($rs) == 0): ?>
+                <div class="row ml-4 mt-2">
+                    <h4>Não há casos de teste a serem exibidos.</h4>
+                </div>
+            <?php endif; ?>
+            
+            <?php if (isset($_GET['story'])): ?>
+                <?php while($row2 = mysqli_fetch_array($rs2)): ?>
+                    <div class="row ml-4 mt-2 pt-2">
+                        <h3><strong>Estória: </strong> <?php echo $row2['description']; ?></h3>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            
+            <?php while($row = mysqli_fetch_array($rs)): ?>
+                <div class="row ml-4 mt-2 pt-4">
+                    <div class="col-md-12 card">
+                      <div class="card-header" style="margin-top: 10px;">
+                        <strong>Projeto: </strong><?php echo $row['project']; ?>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['description']; ?></h5>
+                        <p class="card-text">
+                            <strong>Estória: </strong><?php echo $row['story']; ?>
+                            <p>
+                                <?php
+                                    echo '<button onclick="GetTest('.$row['idtest'].')" class="btn btn-warning btn-md">EDITAR</button>';
+                                    echo '<button onclick="DeleteTest('.$row['idtest'].')" class="btn btn-danger btn-md">APAGAR</button>';
+                                ?>
+                            </p>
+                        </p>
+                      </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
 		</div>
 	</main>
     <!--Main layout-->
@@ -214,7 +147,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Nova Estória</h4>
+                    <h4 class="modal-title" id="myModalLabel">Novo Caso de Teste</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <form action="ajax/tests/add-test.php" method="post">
@@ -223,10 +156,9 @@
                             <label>Projeto</label>
                             <select class="form-control" name="project" onchange="FetchStories(this.value)">
                                 <option value="">Selecione...</option>	
-                                    <?php /* TODO: GET FROM SESSION */ $user_id = 1; ?>
                                     <?php if($con): ?> 
                                         <?php
-                                            $sql = "select * from project where iduser = $user_id";
+                                            $sql = "SELECT * FROM project WHERE iduser = '$user_id'";
                                             $rs = mysqli_query($con, $sql); 
                                         ?>
                                         <?php while($row = mysqli_fetch_array($rs)): ?>
@@ -258,14 +190,14 @@
     <!-- // Modal -->
     
     <!-- Modal - Update Record -->
-    <div class="modal fade" id="update_story_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="update_test_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Editar Estória</h4>
+                    <h4 class="modal-title" id="myModalLabel">Editar Caso de Teste</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
-                <form action="ajax/stories/update-story.php" method="post">
+                <form action="ajax/tests/update-test.php" method="post">
                     <div class="modal-body">
     
                         <div class="form-group">

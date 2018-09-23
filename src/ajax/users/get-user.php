@@ -1,17 +1,13 @@
 <?php
-    // include database connection file
-    include("../db-connection.php");
+    // include Database connection file
+    include("db-connection.php");
+     
     // check request
-    if(isset($_GET['story']))
+    if(isset($_GET['usuario']))
     {
-        $id = $_GET['story'];
-<<<<<<< HEAD
-
-        $query = "SELECT * FROM story WHERE idstory = '$id' ";
-        
-        //echo $query;
-=======
->>>>>>> b4d7ade8a0f952910ce4f1ace2ddc24415daa0c5
+        $user_id = $_GET['usuario'];
+     
+        $query = "SELECT * FROM usuario WHERE idusuario = '$user_id'";
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));
@@ -27,9 +23,7 @@
         else
         {
             $response['status'] = 200;
-            $response['message'] = "Nenhum dado foi encontrado";
-            
-            echo 'erro';
+            $response['message'] = "Data not found!";
         }
         
         // display JSON data
@@ -38,6 +32,6 @@
     else
     {
         $response['status'] = 200;
-        $response['message'] = "Requisição inválida";
+        $response['message'] = "Invalid Request!";
     }
 ?>

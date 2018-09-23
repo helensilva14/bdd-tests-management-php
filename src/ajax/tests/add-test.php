@@ -2,20 +2,24 @@
     // include database connection file 
     include("../db-connection.php");
 
-    if (isset($_POST['submit']) && $con) {
+    if (isset($_POST['submit'])) {
         
+	    $story_id = $_POST['story'];
 	    $description = $_POST['description'];
-	    $project_id = $_POST['project'];
+	    
+	    $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;"); 
 	  
-	    $sql = "INSERT INTO story(description, idproject) values ('$description', '$project_id');";
+	    $sql = "INSERT INTO test(description, idstory) values ('$description', '$story_id');";
 	    $rs = mysqli_query($con, $sql);
+	    
 		if ($rs) {
-			echo "<center><h3>Estória cadastrada com sucesso!</h3></center>";
+			echo "<center><h3>Caso de teste cadastrado com sucesso!</h3></center>";
 		}
 		else {
 			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
 		}
 		
-		header("Location: ../../stories-page.php");
+		header("Location: ../../tests-page.php");
 	}
 ?>

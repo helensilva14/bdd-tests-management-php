@@ -33,42 +33,66 @@
                         // include Database connection file 
                         include("ajax/db-connection.php");
                         
+<<<<<<< HEAD
                         # TODO: get logged user id
 	                    $user_id = 1;
                         
                         //$query = "SELECT p.name AS  'project', s . * FROM story s, project p WHERE s.idproject = $user_id";
                         
                         $query = "SELECT p.name AS 'project', s.* FROM story s, project p;";
+=======
+                        // get logged user id
+	                    $user_id = $_SESSION['iduser'];
+>>>>>>> b4d7ade8a0f952910ce4f1ace2ddc24415daa0c5
 
-                        if (!$result = mysqli_query($con, $query)) {
-                            exit(mysqli_error($con));
-                        }
-                     
-                        // if query results contains rows then featch those rows 
-                        if(mysqli_num_rows($result) > 0)
-                        {
-                            $number = 1;
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-                                echo '<hr class="mb-2">';
-                                echo '<div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">';
-                                echo '<h3 class="mb-3 font-weight-bold dark-grey-text">';
-                                echo '<strong> Estória #'.$row['idstory'].' - Projeto: '.$row['project'].'</strong>';
-                                echo '</h3>';
-                                echo '<p>'.$row['description'].'</p>';
-                                echo '<a href="" class="btn btn-primary btn-md">VER CASOS DE TESTE<i class="fa fa-play ml-2"></i></a>';
-                                echo '<button onclick="GetStory('.$row['idstory'].')" class="btn btn-warning btn-md">EDITAR</button>';
-                                echo '<button onclick="DeleteStory('.$row['idstory'].')" class="btn btn-danger btn-md">APAGAR</button>';
-                                echo '</div>';
+                        $query = "SELECT s. * , p.name AS  'project' FROM story s JOIN project p ON s.idproject = p.idproject
+                                  WHERE p.iduser = '$user_id'";
+                                  
+                        $con->query("SET CHARACTER SET utf8;");
+                        $con->query("SET collation_connection = utf8_unicode_ci;"); 
+                                  
+                        if (isset($_GET['project'])) {
+                            $project_id = $_GET['project'];
+                            $query .= " AND s.idproject = '$project_id'";
+                            
+                            $sql = "SELECT name FROM project WHERE idproject = '$project_id'";
+                            
+                            if (!$rs2 = mysqli_query($con, $sql)) {
+                                exit(mysqli_error($con));
                             }
                         }
-                        else
-                        {
-                            // records now found 
-                            echo 'Você ainda não tem estórias cadastradas';
+       
+                        if (!$rs1 = mysqli_query($con, $query)) {
+                            exit(mysqli_error($con));
                         }
-                        
                     ?>
+                    
+                    <?php if(mysqli_num_rows($rs1) == 0): ?>
+                        <div class="row ml-4 mt-2">
+                            <h4>Não há estórias a serem exibidas.</h4>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php if (isset($_GET['project'])): ?>
+                        <?php while($row2 = mysqli_fetch_array($rs2)): ?>
+                            <div class="col-md-12 ml-xl-4 mb-5">
+                                <h3><strong>Projeto: </strong> <?php echo $row2['name']; ?></h3>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                     
+                    <?php while($row = mysqli_fetch_array($rs1)): ?>
+                        <hr class="mb-2">
+                        <div class="col-md-12 ml-xl-4 mb-4">
+                            <h3 class="mb-3 dark-grey-text">
+                                <strong> Estória #<?php echo $row['idstory']; ?> - Projeto:</strong> <?php echo $row['project']; ?>
+                            </h3>
+                            <h5><?php echo $row['description']; ?></h5>
+                            <a href="tests-page.php?story=<?php echo $row['idstory']; ?>" class="btn btn-primary btn-md">VER CASOS DE TESTE<i class="fa fa-play ml-2"></i></a>
+                            <button onclick="GetStory(<?php echo $row['idstory']; ?>)" class="btn btn-warning btn-md">EDITAR</button>
+                            <button onclick="DeleteStory(<?php echo $row['idstory']; ?>)" class="btn btn-danger btn-md">APAGAR</button>
+                        </div>
+                    <?php endwhile; ?>
 
                 </div>
                 <!--Grid row-->
