@@ -7,7 +7,6 @@
 <?php
     include("base/header_template.php");
 ?>
-
     <!--Main layout-->
     <main class="mt-5 pt-5">
         <div class="container">

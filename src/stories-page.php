@@ -38,7 +38,7 @@
                         
                         //$query = "SELECT p.name AS  'project', s . * FROM story s, project p WHERE s.idproject = $user_id";
                         
-                        $query = "SELECT p.name AS 'project', s. * FROM story s, project p;";
+                        $query = "SELECT p.name AS 'project', s.* FROM story s, project p;";
 
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));

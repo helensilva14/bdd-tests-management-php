@@ -7,9 +7,9 @@
     {
         $id = $_GET['story'];
 
-        $query = "SELECT * FROM story WHERE idstory = '$id'";
+        $query = "SELECT * FROM story WHERE idstory = '$id' ";
         
-        echo $query;
+        //echo $query;
         
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));
