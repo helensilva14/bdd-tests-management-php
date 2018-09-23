@@ -11,12 +11,10 @@
         $rs = mysqli_query($con, $query);
         
 		if ($rs) {
-			echo "<center><h3>Projeto removido com sucesso!</h3></center>";
+			header("Location: ../../projects-page.php?del_success");
 		}
 		else {
-			echo "<center><h3>Erro de remoção: </h3></center> " . mysqli_error($con);
-		}
-		
-        header("Location: ../../projects-page.php");
+			header("Location: ../../projects-page.php?del_error");
+		}		
     }
 ?>

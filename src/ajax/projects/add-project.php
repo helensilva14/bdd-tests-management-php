@@ -15,12 +15,11 @@
 	    $sql = "INSERT INTO project(name, description, iduser) values ('$name', '$description', '$user_id');";
 	    $rs = mysqli_query($con, $sql);
 		if ($rs) {
-			echo "<center><h3>Projeto cadastrado com sucesso!</h3></center>";
+			header("Location: ../../projects-page.php?msg=add_success");
 		}
 		else {
-			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
+			header("Location: ../../projects-page.php?msg=add_error");
 		}
 		
-		header("Location: ../../projects-page.php");
 	}
 ?>

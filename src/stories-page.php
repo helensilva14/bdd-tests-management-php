@@ -13,7 +13,42 @@
 
             <!--Section: Cards-->
             <section class="pt-4">
-
+                <?php
+                    if (isset($_GET['msg'])){
+                        if ($_GET['msg']=='add_success') {
+                            echo   '
+                            <div class="alert alert-success">
+                                <center><strong>Caso de teste cadastrado com sucesso!</strong></center>
+                            </div>';  
+                        } elseif ($_GET['msg']=='add_error') {
+                            echo '
+                            <div class="alert alert-danger">
+                                <center><strong>Houve algum erro de inclusão do Caso de Teste!</strong></center>
+                            </div>'; 
+                        }  elseif ($_GET['msg']=='del_success') {
+                            echo '
+                            <div class="alert alert-success">
+                                <center><strong>Caso de teste removido com sucesso!</strong></center>
+                            </div>'; 
+                        } elseif ($_GET['msg']=='del_error') {
+                            echo '
+                            <div class="alert alert-danger">
+                                <center><strong>Houve algum erro ao remover o Caso de Teste!</strong></center>
+                            </div>'; 
+                        } elseif ($_GET['msg']=='upd_success') {
+                            echo   '
+                            <div class="alert alert-success">
+                                <center><strong>Caso de teste atualizado com sucesso!</strong></center>
+                            </div>';  
+                        } elseif ($_GET['msg']=='upd_error'){
+                            echo '
+                            <div class="alert alert-danger">
+                                <center><strong>Houve algum errona atualização do Caso de Teste!</strong></center>
+                            </div>'; 
+                        }
+                    }
+                    
+                ?>
                 <!-- Heading & Description -->
                 <div class="row">
                     <div class="col-md-12">
@@ -33,17 +68,14 @@
                         // include Database connection file 
                         include("ajax/db-connection.php");
                         
-<<<<<<< HEAD
                         # TODO: get logged user id
 	                    $user_id = 1;
                         
                         //$query = "SELECT p.name AS  'project', s . * FROM story s, project p WHERE s.idproject = $user_id";
                         
                         $query = "SELECT p.name AS 'project', s.* FROM story s, project p;";
-=======
                         // get logged user id
 	                    $user_id = $_SESSION['iduser'];
->>>>>>> b4d7ade8a0f952910ce4f1ace2ddc24415daa0c5
 
                         $query = "SELECT s. * , p.name AS  'project' FROM story s JOIN project p ON s.idproject = p.idproject
                                   WHERE p.iduser = '$user_id'";

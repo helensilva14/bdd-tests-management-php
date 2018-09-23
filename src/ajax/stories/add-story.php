@@ -14,12 +14,10 @@
 	    $rs = mysqli_query($con, $sql);
 	    
 		if ($rs) {
-			echo "<center><h3>Estória cadastrada com sucesso!</h3></center>";
+			header("Location: ../../stories-page.php?msg=add_success");
 		}
 		else {
-			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
-		}
-		
-		header("Location: ../../stories-page.php");
+			header("Location: ../../stories-page.php?msg=add_error");
+		}		
 	}
 ?>

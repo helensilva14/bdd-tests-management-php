@@ -15,13 +15,13 @@
         $rs = mysqli_query($con, $query);
         
 		if ($rs) {
-			echo "<center><h3>Projeto atualizado com sucesso!</h3></center>";
+			header("Location: ../../projects-page.php?msg=upd_success");
 		}
 		else {
-			echo "<center><h3>Erro de atualização: </h3></center> " . mysqli_error($con);
+			header("Location: ../../projects-page.php?msg=upd_error");
 		}
 		
-        header("Location: ../../projects-page.php");
+        
     }
     
 ?>
