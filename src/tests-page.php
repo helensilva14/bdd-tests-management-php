@@ -49,6 +49,39 @@
 		<div class="container">
             <!-- Heading & Description -->
 			<section class="pt-4">
+                <?php
+                    if ((isset($_GET['msg'])) && ($_GET['msg']=='add_success')) {
+                        echo   '
+                        <div class="alert alert-success">
+                            <center><strong>Caso de teste cadastrado com sucesso!</strong></center>
+                        </div>';  
+                    } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='add_error')){
+                        echo '
+                        <div class="alert alert-danger">
+                            <center><strong>Houve algum erro de inclusão do Caso de Teste!</strong></center>
+                        </div>'; 
+                    }  elseif ((isset($_GET['msg'])) && ($_GET['msg']=='del_success')){
+                        echo '
+                        <div class="alert alert-success">
+                            <center><strong>Caso de teste removido com sucesso!</strong></center>
+                        </div>'; 
+                    } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='del_error')){
+                        echo '
+                        <div class="alert alert-danger">
+                            <center><strong>Houve algum erro ao remover o Caso de Teste!</strong></center>
+                        </div>'; 
+                    } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='upd_success')) {
+                        echo   '
+                        <div class="alert alert-success">
+                            <center><strong>Caso de teste atualizado com sucesso!</strong></center>
+                        </div>';  
+                    } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='upd_error')){
+                        echo '
+                        <div class="alert alert-danger">
+                            <center><strong>Houve algum errona atualização do Caso de Teste!</strong></center>
+                        </div>'; 
+                    }
+                ?>
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="h1 text-center" style="display: inline-block; margin-left: 25px;">Casos de Teste</h2>
@@ -154,7 +187,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Projeto</label>
-                            <select class="form-control" name="project" onchange="FetchStories(this.value)">
+                            <select class="form-control" name="select_project" onchange="FetchStories(this.value)">
                                 <option value="">Selecione...</option>	
                                     <?php if($con): ?> 
                                         <?php
@@ -171,12 +204,20 @@
                         </div>
                         <div class="form-group">
                             <label>Estória</label>
-                            <select class="form-control" name="story" id="select_story"></select>
+                            <select class="form-control" name="select_story" id="select_story"></select>
                         </div>
                         <hr />
                         <div class="form-group">
                             <label for="description">Dado</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="text_dado" name="text_dado" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Quando</label>
+                            <textarea class="form-control" id="text_quando" name="text_quando" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Então</label>
+                            <textarea class="form-control" id="text_entao" name="text_entao" rows="2"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

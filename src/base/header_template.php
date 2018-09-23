@@ -44,7 +44,7 @@
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link waves-effect" href="home.php">Home</a>
                         </li>
                         <li class="nav-item">
