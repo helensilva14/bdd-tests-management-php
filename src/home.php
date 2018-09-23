@@ -33,27 +33,66 @@
                     <!--Card-->
                     <div class="card mb-4">
                         
-                        <div class="card-header">
-                            Itens cadastrados
-                        </div>
+                        <div class="card-header">Itens cadastrados</div>
+                        
+                        <?php
+                            // include Database connection file 
+                            include("ajax/db-connection.php");
+                            
+                            // get logged user id
+    	                    $user_id = $_SESSION['iduser'];
+    	                    
+    	                    $q1 = "SELECT COUNT(idproject) AS 'total' FROM project WHERE iduser = $user_id";
+     
+                            if (!$rs1 = mysqli_query($con, $q1)) {
+                                exit(mysqli_error($con));
+                            }
+                            
+                            $q2 = "SELECT COUNT(s.idstory) AS 'total' FROM story s JOIN project p ON s.idproject = p.idproject
+                                   WHERE p.iduser = $user_id";
+     
+                            if (!$rs2 = mysqli_query($con, $q2)) {
+                                exit(mysqli_error($con));
+                            }
+                            
+                            $q3 = "SELECT COUNT(t.idtest) AS 'total' FROM test t 
+                                   JOIN story s ON t.idstory = s.idstory JOIN project p ON s.idproject = p.idproject
+                                   WHERE p.iduser = $user_id";
+     
+                            if (!$rs3 = mysqli_query($con, $q3)) {
+                                exit(mysqli_error($con));
+                            }
+                        ?>
 
                         <!--Card content-->
                         <div class="card-body">
 
                             <!-- List group links -->
                             <div class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-action waves-effect">Projetos
-                                    <span class="badge badge-primary badge-pill pull-right">1</span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Sprints
-                                    <span class="badge badge-primary badge-pill pull-right">1</span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Estórias
-                                    <span class="badge badge-primary badge-pill pull-right">10</span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Casos de Teste
-                                    <span class="badge badge-primary badge-pill pull-right">20</span>
-                                </a>
+                                <?php while($r1 = mysqli_fetch_array($rs1)): ?>
+                                    <a class="list-group-item list-group-item-action waves-effect">Projetos
+                                        <span class="badge badge-primary badge-pill pull-right">
+                                            <?php echo $r1['total']; ?>
+                                        </span>
+                                    </a>
+                                <?php endwhile; ?>
+                                
+                                <?php while($r2 = mysqli_fetch_array($rs2)): ?>
+                                    <a class="list-group-item list-group-item-action waves-effect">Estórias
+                                        <span class="badge badge-primary badge-pill pull-right">
+                                            <?php echo $r2['total']; ?>
+                                        </span>
+                                    </a>
+                                <?php endwhile; ?>
+                                
+                                <?php while($r3 = mysqli_fetch_array($rs3)): ?>
+                                    <a class="list-group-item list-group-item-action waves-effect">Casos de Teste
+                                        <span class="badge badge-primary badge-pill pull-right">
+                                            <?php echo $r3['total']; ?>
+                                        </span>
+                                    </a>
+                                <?php endwhile; ?>
+
                             </div>
                             <!-- List group links -->
 
@@ -93,7 +132,15 @@
                                     <!--Column-->
                                     <div class="col-md-3">
                                         <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light">NOVO PROJETO</a>
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_project_modal" >NOVO PROJETO</a>
+                                        </div>
+                                    </div>
+                                    <!--Column-->
+    
+                                    <!--Column-->
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_story_modal" >NOVA ESTÓRIA</a>
                                         </div>
                                     </div>
                                     <!--Column-->
@@ -101,23 +148,7 @@
                                     <!--Column-->
                                     <div class="col-md-3">
                                         <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light">NOVA SPRINT</a>
-                                        </div>
-                                    </div>
-                                    <!--Column-->
-                                    
-                                    <!--Column-->
-                                    <div class="col-md-3">
-                                        <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light">NOVA ESTÓRIA</a>
-                                        </div>
-                                    </div>
-                                    <!--Column-->
-                                    
-                                    <!--Column-->
-                                    <div class="col-md-3">
-                                        <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light">NOVO CASO DE TESTE</a>
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_test_modal" >NOVO CASO DE TESTE</a>
                                         </div>
                                     </div>
                                     <!--Column-->
@@ -155,6 +186,128 @@
     
     </footer>
     <!--/.Footer-->
+    
+    <!-- Bootstrap Modals -->
+<!-- Modal - Add New Record -->
+<div class="modal fade" id="add_new_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Novo Projeto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <form action="ajax/projects/add-project.php" method="post">
+                <div class="modal-body">
+                   <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- // Modal -->
+
+    <!-- Modal - Add New Record -->
+    <div class="modal fade" id="add_new_story_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Nova Estória</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <form action="ajax/stories/add-story.php" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="description">Projeto</label>
+                            <select class="form-control" name="project">
+                                <option value="">Selecione...</option>	
+                                    <?php /* TODO: GET FROM SESSION */ $user_id = 1; ?>
+                                    <?php if($con): ?> 
+                                        <?php
+                                            $sql = "select * from project where iduser = $user_id";
+                                            $rs = mysqli_query($con, $sql); 
+                                        ?>
+                                        <?php while($row = mysqli_fetch_array($rs)): ?>
+                                            <option <?php echo 'value="'.$row["idproject"].'"'?>>
+                                                <?php echo $row['name']; ?>
+                                            </option>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="description">Descrição</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- // Modal -->
+
+  <!-- Modal - Add New Record -->
+    <div class="modal fade" id="add_new_test_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Novo Caso de Teste</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <form action="ajax/tests/add-test.php" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Projeto</label>
+                            <select class="form-control" name="project" onchange="FetchStories(this.value)">
+                                <option value="">Selecione...</option>	
+                                    <?php if($con): ?> 
+                                        <?php
+                                            $sql = "SELECT * FROM project WHERE iduser = '$user_id'";
+                                            $rs = mysqli_query($con, $sql); 
+                                        ?>
+                                        <?php while($row = mysqli_fetch_array($rs)): ?>
+                                            <option <?php echo 'value="'.$row["idproject"].'"'?>>
+                                                <?php echo $row['name']; ?>
+                                            </option>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estória</label>
+                            <select class="form-control" name="story" id="select_story"></select>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label for="description">Dado</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- // Modal -->
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
