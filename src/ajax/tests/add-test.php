@@ -4,8 +4,8 @@
 
     if (isset($_POST['submit'])) {
         
-	    $story_id = $_POST['story'];
-	    $description = $_POST['description'];
+	    $story_id = $_POST['select_story'];
+	    $description = "Dado " . $_POST['text_dado'] . ", quando ". $_POST['text_quando'] .", então ". $_POST['text_entao'];
 	    
 	    $con->query("SET CHARACTER SET utf8;");
         $con->query("SET collation_connection = utf8_unicode_ci;"); 
@@ -14,12 +14,11 @@
 	    $rs = mysqli_query($con, $sql);
 	    
 		if ($rs) {
-			echo "<center><h3>Caso de teste cadastrado com sucesso!</h3></center>";
+			header("Location: ../../tests-page.php?msg=add_success");
 		}
 		else {
-			echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
+			header("Location: ../../tests-page.php?msg=add_error");
 		}
 		
-		header("Location: ../../tests-page.php");
 	}
 ?>
