@@ -33,17 +33,8 @@
                         // include Database connection file 
                         include("ajax/db-connection.php");
                         
-<<<<<<< HEAD
-                        # TODO: get logged user id
-	                    $user_id = 1;
-                        
-                        //$query = "SELECT p.name AS  'project', s . * FROM story s, project p WHERE s.idproject = $user_id";
-                        
-                        $query = "SELECT p.name AS 'project', s.* FROM story s, project p;";
-=======
                         // get logged user id
 	                    $user_id = $_SESSION['iduser'];
->>>>>>> b4d7ade8a0f952910ce4f1ace2ddc24415daa0c5
 
                         $query = "SELECT s. * , p.name AS  'project' FROM story s JOIN project p ON s.idproject = p.idproject
                                   WHERE p.iduser = '$user_id'";
