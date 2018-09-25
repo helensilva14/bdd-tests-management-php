@@ -16,7 +16,26 @@
 
             <!--Section: Cards-->
             <section class="pt-4">
-
+                <?php
+                    if (isset($_GET['msg'])){
+                        if ($_GET['msg']=='edit_success') {
+                            echo   '
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <center><strong>Usuário atualizado com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';  
+                        } elseif ($_GET['msg']=='edit_error') {
+                            echo '
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve um erro de atualização de usuário!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>'; 
+                        }
+                    ?>
                 <!-- Heading & Description -->
                 <div class="wow fadeIn">
                     <!--Section heading-->
