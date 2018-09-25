@@ -129,9 +129,9 @@
                         <hr class="mb-2">
                         <div class="col-md-12 ml-xl-4 mb-4">
                             <h3 class="mb-3 dark-grey-text">
-                                <strong> Estória #<?php echo $row['idstory']; ?> - Projeto:</strong> <?php echo $row['project']; ?>
+                                <strong><?php echo $row['description']; ?></strong>
                             </h3>
-                            <h5><?php echo $row['description']; ?></h5>
+                            <h5><strong>Projeto:</strong> <?php echo $row['project']; ?></h5>
                             <a href="tests-page.php?story=<?php echo $row['idstory']; ?>" class="btn btn-primary btn-md">VER CASOS DE TESTE<i class="fa fa-play ml-2"></i></a>
                             <button onclick="GetStory(<?php echo $row['idstory']; ?>)" class="btn btn-warning btn-md">EDITAR</button>
                             <button onclick="DeleteStory(<?php echo $row['idstory']; ?>)" class="btn btn-danger btn-md">APAGAR</button>
