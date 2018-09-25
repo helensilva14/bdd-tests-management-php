@@ -8,7 +8,10 @@
         $id = $_GET['project'];
      
         $query = "SELECT * FROM project WHERE idproject = '$id'";
-        
+        	    
+	    $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;"); 
+	 
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error($con));
         }

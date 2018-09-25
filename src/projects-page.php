@@ -17,8 +17,11 @@
                     if (isset($_GET['msg'])){
                         if ($_GET['msg']=='add_success') {
                             echo   '
-                            <div class="alert alert-success">
+                            <div class="alert alert-success alert-dismissible fade show">
                                 <center><strong>Caso de teste cadastrado com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>';  
                         } elseif ($_GET['msg']=='add_error') {
                             echo '
@@ -72,6 +75,9 @@
 	                    $user_id = $_SESSION['iduser'];
                         
                         $query = "SELECT * FROM project WHERE iduser = $user_id";
+                        
+                	    $con->query("SET CHARACTER SET utf8;");
+                        $con->query("SET collation_connection = utf8_unicode_ci;"); 
  
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));
