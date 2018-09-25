@@ -66,7 +66,7 @@
 
                         <!--Card content-->
                         <div class="card-body">
-
+                            <br>
                             <!-- List group links -->
                             <div class="list-group list-group-flush">
                                 <?php while($r1 = mysqli_fetch_array($rs1)): ?>
@@ -95,7 +95,7 @@
 
                             </div>
                             <!-- List group links -->
-
+                        <br>
                         </div>
 
                     </div>
@@ -110,7 +110,7 @@
                         <div class="card">
                             
                             <div class="card-header">
-                                Ações do sistema
+                                Bem vindo ao BDD-TM!
                             </div>
     
                             <!--Card content-->
@@ -118,11 +118,9 @@
                                 
                                 <div class="row">
                                     <p class="text-center">
-                                        Cras eu velit et ante pharetra aliquam at sit amet nisl. Phasellus ut nunc urna. Suspendisse ut rutrum ligula. 
-                                        Quisque orci mauris, gravida non tincidunt vel, tincidunt vitae tortor. Donec mattis imperdiet rhoncus. 
-                                        Maecenas lacus nisl, sollicitudin eu commodo nec, condimentum ac dui. Vestibulum mi urna, euismod vitae vestibulum eget, convallis eu nisi. 
-                                        Vestibulum non suscipit sem. Integer gravida vel neque tristique pretium. 
-                                        Nunc luctus mi ut tincidunt mollis. Phasellus vitae felis iaculis, placerat odio eu, porttitor urna.
+                                        O BDD é um acrônimo para Behavior Driven Development, que é traduzido como Desenvolvimento Guiado a Comportamento e TM é um acrônimo para Test Management, que significa Gerenciamento de Testes. O BDD auxilia na criação de testes e integração de regras de negócios com a linguagem de programação, focando no comportamento do software.
+                                        <br>
+                                        O objetivo do BDD-TM é formatar a escrita de casos de testes já na semântica do BDD, assim, auxiliando o analista de testes com a planejamento e estruturação dos testes de seu projeto. 
                                     </p>
                                 </div>
     
@@ -138,17 +136,17 @@
                                     <!--Column-->
     
                                     <!--Column-->
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 offset-md-1">
                                         <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_story_modal" >NOVA ESTÓRIA</a>
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_story_modal" > NOVA ESTÓRIA</a>
                                         </div>
                                     </div>
                                     <!--Column-->
                                     
                                     <!--Column-->
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 offset-md-1" >
                                         <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_test_modal" >NOVO CASO DE TESTE</a>
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" d0ata-toggle="modal" data-target="#add_new_test_modal" >NOVO CASO DE TESTE</a>
                                         </div>
                                     </div>
                                     <!--Column-->
