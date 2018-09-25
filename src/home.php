@@ -188,7 +188,7 @@
     <!--/.Footer-->
     
     <!-- Bootstrap Modals -->
-<!-- Modal - Add New Record -->
+<!-- Modal - Add New Project -->
 <div class="modal fade" id="add_new_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -217,7 +217,7 @@
 </div>
 <!-- // Modal -->
 
-    <!-- Modal - Add New Record -->
+    <!-- Modal - Add New Story -->
     <div class="modal fade" id="add_new_story_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -262,7 +262,7 @@
     </div>
     <!-- // Modal -->
 
-  <!-- Modal - Add New Record -->
+    <!-- Modal - Add New Test -->
     <div class="modal fade" id="add_new_test_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -274,7 +274,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Projeto</label>
-                            <select class="form-control" name="project" onchange="FetchStories(this.value)">
+                            <select class="form-control" name="select_project" onchange="FetchStories(this.value)">
                                 <option value="">Selecione...</option>	
                                     <?php if($con): ?> 
                                         <?php
@@ -291,12 +291,20 @@
                         </div>
                         <div class="form-group">
                             <label>Estória</label>
-                            <select class="form-control" name="story" id="select_story"></select>
+                            <select class="form-control" name="select_story" id="select_story"></select>
                         </div>
                         <hr />
                         <div class="form-group">
                             <label for="description">Dado</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="text_dado" name="text_dado" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Quando</label>
+                            <textarea class="form-control" id="text_quando" name="text_quando" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Então</label>
+                            <textarea class="form-control" id="text_entao" name="text_entao" rows="2"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -318,6 +326,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <script type="text/javascript" src="js/src/tests.js"></script>
+    
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization

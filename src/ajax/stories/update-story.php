@@ -10,6 +10,9 @@
         $description = $_POST['edit_description'];
      
         $query = "UPDATE story SET description = '$description' WHERE idstory  = '$id'";
+                
+        $con->query("SET CHARACTER SET utf8;");
+        $con->query("SET collation_connection = utf8_unicode_ci;");
         
         $rs = mysqli_query($con, $query);
         
