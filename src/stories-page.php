@@ -176,7 +176,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="description">Projeto</label>
-                            <select class="form-control" name="project">
+                            <select class="form-control" name="project" required>
                                 <option value="">Selecione...</option>	
                                     <?php $user_id = $_SESSION['iduser']; ?>
                                     <?php if($con): ?> 
@@ -196,7 +196,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="description">Descrição</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

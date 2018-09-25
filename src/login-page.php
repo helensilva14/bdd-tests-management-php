@@ -45,12 +45,12 @@
               <!-- Email -->
               <div class="form-group">
                 <label for="email" ><strong>E-mail</strong></label>
-                <input type="email" class="form-control" name="email">     
+                <input type="email" class="form-control" name="email" required>     
               </div>
         
               <!-- Password -->
               <div class="form-group">
-                <label for="password"><strong>Senha</strong></label>
+                <label for="password"><strong>Senha</strong></label required>
                 <input type="password" class="form-control" name="password">
               </div>
 

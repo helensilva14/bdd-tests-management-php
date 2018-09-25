@@ -154,11 +154,11 @@
                 <div class="modal-body">
                    <div class="form-group">
                         <label for="name">Nome</label>
-                        <input type="text" id="name" name="name" class="form-control"/>
+                        <input type="text" id="name" name="name" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
