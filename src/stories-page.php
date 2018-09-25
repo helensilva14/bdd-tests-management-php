@@ -178,7 +178,7 @@
                             <label for="description">Projeto</label>
                             <select class="form-control" name="project">
                                 <option value="">Selecione...</option>	
-                                    <?php /* TODO: GET FROM SESSION */ $user_id = 1; ?>
+                                    <?php $user_id = $_SESSION['iduser']; ?>
                                     <?php if($con): ?> 
                                         <?php
                                             $sql = "select * from project where iduser = $user_id";
