@@ -32,6 +32,12 @@
               <center><strong>As senhas não conferem!</strong></center>
             </div>';
           }
+          if ((isset($_GET['msg'])) && ($_GET['msg']=='add_error')){
+              echo '
+              <div class="alert alert-danger">
+                  <center><strong>Houve algum erro ao realizar o cadastro. Tente novamente</strong></center>
+              </div>'; 
+          }
          ?>
 
         <div class="card-body px-lg-5 pt-0">
