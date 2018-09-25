@@ -146,7 +146,7 @@
                                     <!--Column-->
                                     <div class="col-md-3 offset-md-1" >
                                         <div class="text-center">
-                                            <a class="btn btn-primary btn-sm waves-effect waves-light" d0ata-toggle="modal" data-target="#add_new_test_modal" >NOVO CASO DE TESTE</a>
+                                            <a class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add_new_test_modal" >NOVO CASO DE TESTE</a>
                                         </div>
                                     </div>
                                     <!--Column-->
@@ -229,7 +229,7 @@
                             <label for="description">Projeto</label>
                             <select class="form-control" name="project" required>
                                 <option value="">Selecione...</option>	
-                                    <?php /* TODO: GET FROM SESSION */ $user_id = 1; ?>
+                                    <?php $user_id = $_SESSION['iduser']; ?>
                                     <?php if($con): ?> 
                                         <?php
                                             $sql = "select * from project where iduser = $user_id";
@@ -273,7 +273,8 @@
                         <div class="form-group">
                             <label>Projeto</label>
                             <select class="form-control" name="select_project" onchange="FetchStories(this.value)" required>
-                                <option value="">Selecione...</option>	
+                                <option value="">Selecione...</option>
+                                    <?php $user_id = $_SESSION['iduser']; ?>
                                     <?php if($con): ?> 
                                         <?php
                                             $sql = "SELECT * FROM project WHERE iduser = '$user_id'";
