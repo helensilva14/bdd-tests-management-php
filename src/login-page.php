@@ -20,9 +20,10 @@
     <body class="text-center">
         <!-- Material form login -->
         <div class="card">
-          <h5 class="card-header info-color white-text text-center py-4">
+          <img src="img/logo.png" width></img>
+          <!-- <h5 class="card-header info-color white-text text-center py-4">
             <strong>Entrar</strong>
-          </h5>
+          </h5> -->
           <?php
               if((isset($_GET['msg'])) && ($_GET['msg']=='error')){ 
                 echo '
