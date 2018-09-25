@@ -52,33 +52,51 @@
                 <?php
                     if ((isset($_GET['msg'])) && ($_GET['msg']=='add_success')) {
                         echo   '
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissible fade show">
                             <center><strong>Caso de teste cadastrado com sucesso!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>';  
                     } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='add_error')){
                         echo '
-                        <div class="alert alert-danger">
-                            <center><strong>Houve algum erro de inclusão do Caso de Teste!</strong></center>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <center><strong>Houve algum erro de inclusão do caso de teste!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>'; 
                     }  elseif ((isset($_GET['msg'])) && ($_GET['msg']=='del_success')){
                         echo '
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissible fade show">
                             <center><strong>Caso de teste removido com sucesso!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>'; 
                     } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='del_error')){
                         echo '
-                        <div class="alert alert-danger">
-                            <center><strong>Houve algum erro ao remover o Caso de Teste!</strong></center>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <center><strong>Houve algum erro ao remover o caso de teste!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>'; 
                     } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='upd_success')) {
                         echo   '
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissible fade show">
                             <center><strong>Caso de teste atualizado com sucesso!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>';  
                     } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='upd_error')){
                         echo '
-                        <div class="alert alert-danger">
-                            <center><strong>Houve algum errona atualização do Caso de Teste!</strong></center>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <center><strong>Houve algum erro na atualização do Caso de Teste!</strong></center>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>'; 
                     }
                 ?>

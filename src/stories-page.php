@@ -17,33 +17,51 @@
                     if (isset($_GET['msg'])){
                         if ($_GET['msg']=='add_success') {
                             echo   '
-                            <div class="alert alert-success">
-                                <center><strong>Caso de teste cadastrado com sucesso!</strong></center>
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <center><strong>Estória cadastrada com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>';  
                         } elseif ($_GET['msg']=='add_error') {
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum erro de inclusão do Caso de Teste!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro de inclusão da estória!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         }  elseif ($_GET['msg']=='del_success') {
                             echo '
-                            <div class="alert alert-success">
-                                <center><strong>Caso de teste removido com sucesso!</strong></center>
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <center><strong>Estória removida com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         } elseif ($_GET['msg']=='del_error') {
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum erro ao remover o Caso de Teste!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro ao remover a estória!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         } elseif ($_GET['msg']=='upd_success') {
                             echo   '
-                            <div class="alert alert-success">
-                                <center><strong>Caso de teste atualizado com sucesso!</strong></center>
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <center><strong>Estória atualizada com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>';  
                         } elseif ($_GET['msg']=='upd_error'){
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum errona atualização do Caso de Teste!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro na atualização da estória!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         }
                     }
