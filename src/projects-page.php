@@ -17,33 +17,51 @@
                     if (isset($_GET['msg'])){
                         if ($_GET['msg']=='add_success') {
                             echo   '
-                            <div class="alert alert-success">
+                            <div class="alert alert-success alert-dismissible fade show">
                                 <center><strong>Projeto cadastrado com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>';  
                         } elseif ($_GET['msg']=='add_error') {
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum erro de inclusão do Projeto!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro de inclusão do projeto!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         }  elseif ($_GET['msg']=='del_success') {
                             echo '
-                            <div class="alert alert-success">
+                            <div class="alert alert-success alert-dismissible fade show">
                                 <center><strong>Projeto removido com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         } elseif ($_GET['msg']=='del_error') {
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum erro ao remover o Projeto!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro ao remover o projeto!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         } elseif ($_GET['msg']=='upd_success') {
                             echo   '
-                            <div class="alert alert-success">
+                            <div class="alert alert-success alert-dismissible fade show">
                                 <center><strong>Projeto atualizado com sucesso!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>';  
                         } elseif ($_GET['msg']=='upd_error'){
                             echo '
-                            <div class="alert alert-danger">
-                                <center><strong>Houve algum errona atualização do Projeto!</strong></center>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <center><strong>Houve algum erro na atualização do projeto!</strong></center>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>'; 
                         }
                     }
@@ -72,6 +90,9 @@
 	                    $user_id = $_SESSION['iduser'];
                         
                         $query = "SELECT * FROM project WHERE iduser = $user_id";
+                        
+                	    $con->query("SET CHARACTER SET utf8;");
+                        $con->query("SET collation_connection = utf8_unicode_ci;"); 
  
                         if (!$result = mysqli_query($con, $query)) {
                             exit(mysqli_error($con));

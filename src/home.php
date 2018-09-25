@@ -70,7 +70,7 @@
                             <!-- List group links -->
                             <div class="list-group list-group-flush">
                                 <?php while($r1 = mysqli_fetch_array($rs1)): ?>
-                                    <a class="list-group-item list-group-item-action waves-effect">Projetos
+                                    <a href="projects-page.php" class="list-group-item list-group-item-action waves-effect">Projetos
                                         <span class="badge badge-primary badge-pill pull-right">
                                             <?php echo $r1['total']; ?>
                                         </span>
@@ -78,7 +78,7 @@
                                 <?php endwhile; ?>
                                 
                                 <?php while($r2 = mysqli_fetch_array($rs2)): ?>
-                                    <a class="list-group-item list-group-item-action waves-effect">Estórias
+                                    <a href="stories-page.php" class="list-group-item list-group-item-action waves-effect">Estórias
                                         <span class="badge badge-primary badge-pill pull-right">
                                             <?php echo $r2['total']; ?>
                                         </span>
@@ -86,7 +86,7 @@
                                 <?php endwhile; ?>
                                 
                                 <?php while($r3 = mysqli_fetch_array($rs3)): ?>
-                                    <a class="list-group-item list-group-item-action waves-effect">Casos de Teste
+                                    <a href="tests-page.php" class="list-group-item list-group-item-action waves-effect">Casos de Teste
                                         <span class="badge badge-primary badge-pill pull-right">
                                             <?php echo $r3['total']; ?>
                                         </span>
