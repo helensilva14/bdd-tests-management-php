@@ -198,11 +198,11 @@
                 <div class="modal-body">
                    <div class="form-group">
                         <label for="name">Nome</label>
-                        <input type="text" id="name" name="name" class="form-control"/>
+                        <input type="text" id="name" name="name" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -227,7 +227,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="description">Projeto</label>
-                            <select class="form-control" name="project">
+                            <select class="form-control" name="project" required>
                                 <option value="">Selecione...</option>	
                                     <?php /* TODO: GET FROM SESSION */ $user_id = 1; ?>
                                     <?php if($con): ?> 
@@ -247,7 +247,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="description">Descrição</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -272,7 +272,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Projeto</label>
-                            <select class="form-control" name="select_project" onchange="FetchStories(this.value)">
+                            <select class="form-control" name="select_project" onchange="FetchStories(this.value)" required>
                                 <option value="">Selecione...</option>	
                                     <?php if($con): ?> 
                                         <?php
@@ -289,20 +289,20 @@
                         </div>
                         <div class="form-group">
                             <label>Estória</label>
-                            <select class="form-control" name="select_story" id="select_story"></select>
+                            <select class="form-control" name="select_story" id="select_story" required></select>
                         </div>
                         <hr />
                         <div class="form-group">
                             <label for="description">Dado</label>
-                            <textarea class="form-control" id="text_dado" name="text_dado" rows="2"></textarea>
+                            <textarea class="form-control" id="text_dado" name="text_dado" rows="2" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="description">Quando</label>
-                            <textarea class="form-control" id="text_quando" name="text_quando" rows="2"></textarea>
+                            <textarea class="form-control" id="text_quando" name="text_quando" rows="2" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="description">Então</label>
-                            <textarea class="form-control" id="text_entao" name="text_entao" rows="2"></textarea>
+                            <textarea class="form-control" id="text_entao" name="text_entao" rows="2" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

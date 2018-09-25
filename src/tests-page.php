@@ -261,7 +261,7 @@
     
                         <div class="form-group">
                             <label for="description">Descrição</label>
-                            <textarea class="form-control" id="edit_description" name="edit_description" rows="3"></textarea>
+                            <textarea class="form-control" id="edit_description" name="edit_description" rows="3" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
