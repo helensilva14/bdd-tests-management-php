@@ -6,18 +6,11 @@
     if(isset($_GET['story']))
     {
         $id = $_GET['story'];
-<<<<<<< HEAD
-
-        $query = "SELECT * FROM story WHERE idstory = '$id' ";
-        
-        //echo $query;
-=======
      
         $query = "SELECT * FROM story WHERE idstory = '$id'";
         
         $con->query("SET CHARACTER SET utf8;");
         $con->query("SET collation_connection = utf8_unicode_ci;");
->>>>>>> b4d7ade8a0f952910ce4f1ace2ddc24415daa0c5
         
         if (!$result = mysqli_query($con, $query)) {
             mysqli_error($con);
