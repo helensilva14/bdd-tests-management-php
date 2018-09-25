@@ -19,7 +19,7 @@
         if ($rs) {
             echo "<center><h3>Usuário cadastrado com sucesso!</h3></center>";
             
-            header('Location: ../../login-page?msg=success.php');
+            header('Location: ../../login-page.php?msg=success');
         }
         else {
             echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
