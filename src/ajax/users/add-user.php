@@ -23,6 +23,8 @@
         }
         else {
             echo "<center><h3>Erro de inclusão: </h3></center> " . mysqli_error($con);
+            
+            header('Location: ../../register-user.php?msg=add_error');
         }
     }
     
