@@ -26,27 +26,27 @@
                         } elseif ($_GET['msg']=='add_error') {
                             echo '
                             <div class="alert alert-danger">
-                                <center><strong>Houve algum erro de inclusão do Caso de Teste!</strong></center>
+                                <center><strong>Houve algum erro de inclusão do Projeto!</strong></center>
                             </div>'; 
                         }  elseif ($_GET['msg']=='del_success') {
                             echo '
                             <div class="alert alert-success">
-                                <center><strong>Caso de teste removido com sucesso!</strong></center>
+                                <center><strong>Projeto removido com sucesso!</strong></center>
                             </div>'; 
                         } elseif ($_GET['msg']=='del_error') {
                             echo '
                             <div class="alert alert-danger">
-                                <center><strong>Houve algum erro ao remover o Caso de Teste!</strong></center>
+                                <center><strong>Houve algum erro ao remover o Projeto!</strong></center>
                             </div>'; 
                         } elseif ($_GET['msg']=='upd_success') {
                             echo   '
                             <div class="alert alert-success">
-                                <center><strong>Caso de teste atualizado com sucesso!</strong></center>
+                                <center><strong>Projeto atualizado com sucesso!</strong></center>
                             </div>';  
                         } elseif ($_GET['msg']=='upd_error'){
                             echo '
                             <div class="alert alert-danger">
-                                <center><strong>Houve algum errona atualização do Caso de Teste!</strong></center>
+                                <center><strong>Houve algum errona atualização do Projeto!</strong></center>
                             </div>'; 
                         }
                     }
