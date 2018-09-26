@@ -61,6 +61,11 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
+                            <a href="edit-user.php" class="nav-link border border-light rounded waves-effect">
+                                <i class="fa fa-user"></i>Editar conta
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="ajax/users/logout.php" class="nav-link border border-light rounded waves-effect">
                                 <i class="fa fa-sign-out"></i>Sair
                             </a>

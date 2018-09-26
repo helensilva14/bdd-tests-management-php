@@ -17,7 +17,7 @@
             <!--Section: Cards-->
             <section class="pt-4">
                 <?php
-                    if (isset($_GET['msg'])){
+                    if (isset($_GET['msg'])) {
                         if ($_GET['msg']=='edit_success') {
                             echo   '
                             <div class="alert alert-success alert-dismissible fade show">
@@ -35,7 +35,8 @@
                                 </button>
                             </div>'; 
                         }
-                    ?>
+                    }
+                ?>
                 <!-- Heading & Description -->
                 <div class="wow fadeIn">
                     <!--Section heading-->
